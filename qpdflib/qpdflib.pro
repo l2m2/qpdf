@@ -21,3 +21,10 @@ SOURCES =\
     pdfjsbridge.cpp
 
 RESOURCES += pdfview.qrc
+
+DIST_DIR=$$PWD/../dist
+CONFIG(debug, debug | release) {
+    DESTDIR = $$DIST_DIR/debug
+} else {
+    DESTDIR = $$DIST_DIR/release
+}

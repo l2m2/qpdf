@@ -1,4 +1,4 @@
-/*
+﻿/*
                           qpdf
 
     Copyright (C) 2015 Arthur Benilov,
@@ -24,6 +24,9 @@
 
 int main(int argc, char **argv)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
 #ifdef QPDF_WIDGET_USE_CORS
     // Disable web security when using cross-origin URL fetch.
 
@@ -38,9 +41,9 @@ int main(int argc, char **argv)
 #else
     QApplication app(argc, argv);
 #endif
-
+    app.setApplicationDisplayName(QStringLiteral("Pdf Reader(Powered by qpdf)"));
     MainWindow mainWindow;
-    mainWindow.show();
+    mainWindow.showMaximized();
 
     if (argc > 1) {
         // Load file provided as an argument

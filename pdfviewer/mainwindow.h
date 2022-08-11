@@ -1,4 +1,4 @@
-/*
+﻿/*
                           qpdf
 
     Copyright (C) 2015 Arthur Benilov,
@@ -28,24 +28,25 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-
     MainWindow(QWidget *pParent = nullptr, Qt::WindowFlags flags = 0);
 
 public slots:
-
     void loadFile(const QString &path);
 
 private slots:
-
     void onOpenFile();
+    void onPrint();
 
 private:
-
     void createActions();
     void createToolBar();
+    QIcon icon(const QString &name);
 
-    QAction *m_pOpenFileAction;
-    QPdfWidget *m_pPdfWidget;
+private:
+    QAction *m_pOpenFileAction = nullptr;
+    QAction *m_pPrintAction = nullptr;
+    QPdfWidget *m_pPdfWidget = nullptr;
+    QString m_fileName;
 };
 
 #endif // MAINWINDOW_H
