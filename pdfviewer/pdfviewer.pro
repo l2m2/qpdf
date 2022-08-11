@@ -23,3 +23,5 @@ CONFIG(debug, debug | release) {
 }
 LIBS += -L$$DESTDIR
 win32:LIBS += qpdf.lib
+
+RC_ICONS = favicon.ico
