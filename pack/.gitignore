@@ -1,2 +1,3 @@
 pack_temp/
 *.exe
+!extra/**/*
